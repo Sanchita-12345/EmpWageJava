@@ -2,11 +2,8 @@ class EmpWageComputation
 {
       static final int IS_FULL_TIME=1;
       static final int IS_PART_TIME=2;
-      static final int EMP_RATE_PER_HOUR=20;
-      static final int NUM_OF_WORKING_DAYS=20;
-      static final int MAX_HOURS_IN_A_MONTH=100;
 
-		public static int computeEmpWage()
+		public static int computeEmpWage(String company,int EMP_RATE_PER_HOUR,int NUM_OF_WORKING_DAYS,int MAX_HOURS_IN_A_MONTH)
 		{
 			int empHrs=0;
       	int totalEmpHours=0;
@@ -27,14 +24,17 @@ class EmpWageComputation
                	empHrs=0;
          	}
          	totalEmpHours+=empHrs;
-         	System.out.println("Day : " +totalWorkingDays + "     "+ "Emp hours : " +empHrs);
       	}
       	int totalEmpWage=totalEmpHours*EMP_RATE_PER_HOUR;
-      	System.out.println("Total Emp Wage : " +totalEmpWage);
+			System.out.println("Day : " +totalWorkingDays + "     "+ "Emp hours : " +empHrs);
+      	System.out.println("Total Emp Wage for company "+company+" is " +totalEmpWage);
 			return totalEmpWage;
 		}
    	public static void main(String args[])
    	{
-			computeEmpWage();
+			EmpWageComputation obj1=new EmpWageComputation();
+			EmpWageComputation obj2=new EmpWageComputation();
+			obj1.computeEmpWage("TCS",20,20,100);
+			obj2.computeEmpWage("WIPRO",15,10,80);
 	   }
 }
